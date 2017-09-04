@@ -257,6 +257,12 @@ project('segmentstore:server:host') {
     applicationDistribution.into("bin") {
         from(createAppWithGCLogging)
     }
+    test {
+        onlyIf {
+            project.hasProperty("enableTests")
+        }
+    }
+
 }
 
 project('test:integration') {
